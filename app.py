@@ -51,7 +51,7 @@ def create_app():
 
     # Init extensions
     db.init_app(app)
-    socketio.init_app(app, async_mode='eventlet', cors_allowed_origins='*')
+    socketio.init_app(app, async_mode='threading', cors_allowed_origins='*')
     login_manager.init_app(app)
     login_manager.login_view = 'auth.login'
     login_manager.login_message = 'Please log in to access this page.'
